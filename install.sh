@@ -2,9 +2,9 @@
 
 git pull origin master;
 
-# Create symlink if it doesn't exist (-s)
-for file in ./.{bash_profile,prompt,functions,env}; do
-  ln -s "$PWD/$file" ~
+# Create symlink (overwrite existing)
+for file in .{bash_profile,prompt,functions,env}; do
+  ln -sfv "$PWD/$file" ~
 done;
 
 source .bash_profile;
