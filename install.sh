@@ -3,6 +3,8 @@
 # git pull origin master;
 
 # Create symlink if it doesn't exist (-s)
-ln -s "$(pwd)/.bash_profile" ~
+for file in ./.{bash_profile,prompt,functions,env}; do
+  ln -s "$PWD/$file" ~
+done;
 
 source .bash_profile;
