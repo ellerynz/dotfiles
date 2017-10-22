@@ -1,0 +1,12 @@
+# http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
+# To delete all branches that are already merged into the currently checked out branch
+kill_merged_branches() {
+  git branch --merged master | grep -v "\*" | xargs -n 1 git branch -d
+}
+
+# Show the last 10 branches you have used
+what_was_i_working_on() {
+  git for-each-ref --sort=-committerdate --format='%(refname:short) (%(committerdate))' refs/heads/ --count=10
+}
+
+function sublg { bundle show $@ | xargs subl; }
